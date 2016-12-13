@@ -1,33 +1,57 @@
-IoT6Sec: IoT Security: reliability model based on anomalous measurements identification, end-to-end security and energy consumption analysis
+IoT6Sec
+
+IoT Security: reliability model based on anomalous measurements identification, end-to-end security and energy consumption analysis
 
 These README files contain the minimum necessary files and instructions to the proper use of IoT6Sec.
 
+
 #1
-  - File: "tmotesky_ipsec/IoT-IPSec-measurement.c"
-    - Contains code for use with Tmote Sky in Cooja
-    - Measures temperature, humidity, and light
-    - Transmit using IPSec ESP with authentication option
-    * Please go to http://shahidraza.info/ to obtain complete IPSec code and instructions to use with Contiki/Cooja and to obtain instructions on how to generate keys for AES-XCBC and AES-CTR
+  - Directory "reliability_analysis/"
+    - File: "IoT-IPSec-measurement.c"
+      - Contains code for use with Tmote Sky in Cooja
+      - Measures temperature, humidity, and light
+      - Transmit measurements using IPSec ESP with authentication option
+      - Computes CPU energy and print in Cooja console
+      * Please go to http://shahidraza.info/ to obtain complete IPSec code and instructions to use with Contiki/Cooja and to obtain instructions on how to generate keys for AES-XCBC and AES-CTR
+
+    - File: "aes-ctr.c"
+      - Contains AES 128-bit key file used in experiments
+
+    - File: "aes-xcbc-mac.c"
+      - Contains AES-XCBC-MAC derived ICV from AES key
+
+    - File: "udpserver.py"
+      - Contains an adaptation of Raza's udpserver to request measurements to the devices
+
+    - File: "start.sh"
+      - Contain script to simultaneously request measurements from 3 devices
+
 
 #2
   - Directory "reliability_analysis/"
     - Contain the selected sets for IoT6Sec validation
+
     - Files are provided in two forms: Normal and Anomalous
+
     - Normal files has the following description:
       -IBRL_IoT{device_number}_Normal_{interval_time:30,60,120,240}min
+
     - Anomalous files has the following description
       -IBRL_IoT{device_number}_{anomaly_type:A1,A2orA3}_{anomalous_validation_scenario:AD.AP,1D.AP,1D.1P(HUM)}_{percentage_of_variation:10,20,30}%_{interval_time:30,60,120,240}min
+
     - All files have six columns:
       - timestamp: real timestamp of the measurement
       - sensor: number of the device
       - temp: temperature measured
       - umid: humidity measured
       - tsr: light measured
-      - colMeans(radio1)timestamp_10min: timestamp with maximum 10 minutes approximation of real timestamp
+      - timestamp_10min: timestamp with maximum 10 minutes approximation of real timestamp
     * IBRL is provided by Peter Bodik, Wei Hong, Carlos Guestrin, Sam Madden, Mark Paskin, and Romain Thibaux: http://db.csail.mit.edu/labdata/labdata.html
+
 
 #3
   - We use R-free to run experiments
+
   - We use the following R functions:
     - colMeans() - for mean vector
     - cov(X) - for covariance matrix of X vector
@@ -35,6 +59,6 @@ These README files contain the minimum necessary files and instructions to the p
     - det() - for generalized variance
     - cov2cor(X) - for correlation matrix of X vector
     - cor(X,Y) - for correlation matrix of vectors X and Y
-    - t() - for transpose matrix to euclidean distance
-    - dist(rbind(IoTX_temp,IoTY_temp)) - to calculate euclidean distance between phisical quantities of two devices
-    - drawMahal() - to draw elipses according to Mahalanobis distances
+    - t() - for transpose matrix to Euclidean distance
+    - dist(rbind(IoTX_temp,IoTY_temp)) - to calculate Euclidean distance between physical quantities of two devices
+    - drawMahal() - to draw ellipses according to Mahalanobis distances
