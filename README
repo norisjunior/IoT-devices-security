@@ -37,10 +37,10 @@ These README files contain the minimum necessary files and instructions to the p
 
     - Files are provided in two forms: Normal and Anomalous
 
-    - Normal files has the following description:
+    - Files with normal measurements have the following description:
       -IBRL_IoT{device_number}_Normal_{interval_time:30,60,120,240}min
 
-    - Anomalous files has the following description
+    - Files with anomalous measurements have the following description
       -IBRL_IoT{device_number}_{anomaly_type:A1,A2orA3}_{anomalous_validation_scenario:AD.AP,1D.AP,1D.1P(HUM)}_{percentage_of_variation:10,20,30}%_{interval_time:30,60,120,240}min
 
     - All files have six columns:
