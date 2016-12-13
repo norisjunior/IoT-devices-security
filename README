@@ -24,7 +24,11 @@ These README files contain the minimum necessary files and instructions to the p
       - Contains an adaptation of Raza's udpserver to request measurements to the devices
 
     - File: "start.sh"
-      - Contain script to simultaneously request measurements from 3 devices
+      - Contains script to simultaneously request measurements from 3 devices
+
+    - File: "ipsec-tools-esp-cooja-128.conf"
+      - Contains AES pre-shared configuration for Linux Ubuntu (ipsec-tools package)
+      * Using ipsec in Ubuntu: https://help.ubuntu.com/community/IPSecHowTo
 
 
 #2
