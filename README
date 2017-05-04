@@ -6,7 +6,7 @@ These README files contain the minimum necessary files and instructions to the p
 
 
 #1
-  - Directory "reliability_analysis/"
+  - Directory "tmotesky_ipsec/"
     - File: "IoT-IPSec-measurement.c"
       - Contains code for use with Tmote Sky in Cooja
       - Measures temperature, humidity, and light
@@ -33,7 +33,7 @@ These README files contain the minimum necessary files and instructions to the p
 
 #2
   - Directory "reliability_analysis/"
-    - Contain the selected sets for IoT6Sec validation
+    - Contains the selected sets for IoT6Sec validation
 
     - Files are provided in two forms: Normal and Anomalous
 
